@@ -4,8 +4,8 @@
 name: Node.js Package
 
 on:
-  release:
-    types: [created]
+  push:
+    branches: [ master ]
 
 jobs:
   build:
@@ -26,8 +26,8 @@ jobs:
         with:
           node-version: 14
           registry-url: https://registry.npmjs.org/
-      - run: yarn install --frozen-lockfile
-      - run: yarn publish
+      - run: yarn install
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.PACK_TOKEN_NPM}}
 
