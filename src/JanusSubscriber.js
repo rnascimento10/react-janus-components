@@ -6,7 +6,7 @@ import { subscribeRemoteFeed, sendData } from './utils/subscriber';
 import JanusPlayer from './JanusPlayer';
 import JanusChat from './JanusChat';
 
-const JanusSubscriber = ({ janus, opaqueId, room, pubId, pubPvtId, children }) => {
+const JanusSubscriber = ({ janus, opaqueId, room, pubId, pubPvtId, pin, children }) => {
     const videoArea = useRef(null);
     const [playerState, setPlayerState] = useState("Ready");
     const [sfutest, setSfuTest] = useState(null);
@@ -55,7 +55,7 @@ const JanusSubscriber = ({ janus, opaqueId, room, pubId, pubPvtId, children }) =
 
                         const publisher = list[0];
                         const { id, display, audio_codec, video_codec} = publisher;
-                        subscribeRemoteFeed(janus, opaqueId, room, id, pubPvtId, display, audio_codec, video_codec, remoteFeedCallback);
+                        subscribeRemoteFeed(janus, opaqueId, room, id, pubPvtId, display, audio_codec, video_codec, pin, remoteFeedCallback);
                     }
                 }else if(eventType === "publishers"){
                     if(data.publishers !== undefined && data.publishers !== null) {
