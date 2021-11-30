@@ -1,6 +1,6 @@
 import Janus from './janus';
 
-export function subscribeRemoteFeed(janus, opaqueId, room, id, pvtId, display, audio, video, callback) {
+export function subscribeRemoteFeed(janus, opaqueId, room, id, pvtId, display, audio, video, pin, callback) {
     let remoteFeed = null;
 
     janus.attach(
@@ -19,7 +19,8 @@ export function subscribeRemoteFeed(janus, opaqueId, room, id, pvtId, display, a
                     "ptype": "subscriber", 
                     "feed": id, 
 					"private_id": pvtId ,
-					"data": true
+					"data": true,
+          "pin" : pin
                 };
 
 				if(Janus.webRTCAdapter.browserDetails.browser === "safari" &&
