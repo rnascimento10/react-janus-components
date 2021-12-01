@@ -1,8 +1,8 @@
 {
-  "name": "react-janus-components-lab",
-  "version": "1.0.2",
+  "name": "@jspengine/react-janus-components-lab",
+  "version": "1.0.3",
   "description": "Video Room compomnent for react js",
-  "author": "enato Nascimento",
+  "author": "Renato Nascimento",
   "license": "MIT",
   "repository": "https://github.com/rnascimento10/react-janus-components",
   "main": "dist/index.js",
